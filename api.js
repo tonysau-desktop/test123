@@ -65,10 +65,10 @@ router.route("/message")
         res.json(message);
     });
 
-router.route("/message")
+router.route("/message/messageModifie")
 //Modifier le message
     .put(function(req, res) {
-        this.message = req.body.message;
+        message = req.body.message;
         res.json({message: 'Message modifié avec succès.'});
     });
 
