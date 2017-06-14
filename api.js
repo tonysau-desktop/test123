@@ -2,7 +2,7 @@ var express    = require('express');
 var app        = express(); 
 var bodyParser = require('body-parser');
 var path = require('path');
-var monmessage = {monmessage : 'Voici un message pour la partie 2!'};
+var monmessage = {"monmessage" : "Voici un message pour la partie 2!"};
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
