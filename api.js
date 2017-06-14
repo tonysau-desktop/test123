@@ -2,7 +2,7 @@ var express    = require('express');
 var app        = express(); 
 var bodyParser = require('body-parser');
 var path = require('path');
-var monmessage = "Voici un message pour la partie 2";
+var monmessage = "Voici un message pour Partie 2.";
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -66,7 +66,7 @@ router.route("/message")
         res.json({message: monmessage});
     });
 
-router.route("/message/messageModifie")
+router.route("/message")
 //Modifier le message
     .put(function(req, res) {
         monmessage = req.body.message;
