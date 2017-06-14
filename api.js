@@ -2,7 +2,7 @@ var express    = require('express');
 var app        = express(); 
 var bodyParser = require('body-parser');
 var path = require('path');
-var monmessage = [{monmessage : 'Voici un message pour la partie 2!'}];
+var message = {message: 'Voici un message pour la partie 2!'};
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -58,11 +58,11 @@ router.route('/etudiants')
         });
     });
 
-router.route('/monmessage')
+router.route('/message')
 
 //obtenir mon message statique
     .get(function(req, res) {
-        res.json(monmessage);
+        res.json(message);
     });
 
 router.route("/etudiants/:code")  //Prend le code permanent dans l'URL. Ex. /etudiant/BOIE10101010
