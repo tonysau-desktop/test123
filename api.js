@@ -2,6 +2,7 @@ var express    = require('express');
 var app        = express(); 
 var bodyParser = require('body-parser');
 var path = require('path');
+var monmessage = {"monmessage" : "Voici un message pour la partie 2!"};
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -39,7 +40,7 @@ router.use(function(req, res, next)
 
 // Route de test, sur /api
 router.get('/', function(req, res) {
-    res.json({ message: 'Bienvenue sur l\'API de GTI525'});   
+    res.json({ message: 'Bienvenue sur l\'API de GTI525'});
 });
 
 // --------------------
@@ -57,28 +58,12 @@ router.route('/etudiants')
         });
     });
 
-/*
-Route désactivée pour la version en installation
-router.route("/etudiants")
-    // Ajouter un étudiant
-    .post(function(req, res) {
-        
-        var etudiant = new Etudiant();   
-        etudiant.code = req.body.code;
-        etudiant.nom = req.body.nom;
-        etudiant.prenom = req.body.prenom;
+router.route('/monmessage')
 
-        // sauvegarde l'étudiant à la BD
-        etudiant.save(function(err) {
-            if (err){
-                res.status(500).json({ erreur: 'Erreur lors de l\'enregistrement à la BD' });
-                return;
-            }
-            res.json({ message: 'Étudiant ajouté' });
-        });
-        
+//obtenir mon message statique
+    .get(function(req, res) {
+        res.json(monmessage);
     });
-*/
 
 router.route("/etudiants/:code")  //Prend le code permanent dans l'URL. Ex. /etudiant/BOIE10101010
     //Obtenir un seul étudiant
