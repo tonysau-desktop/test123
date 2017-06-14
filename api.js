@@ -60,7 +60,7 @@ router.route('/etudiants')
 
 router.route("/message")
 
-//obtenir le message
+//Obtenir le message
     .get(function(req, res) {
         res.json(message);
     });
@@ -68,13 +68,7 @@ router.route("/message")
 router.route("/message")
 //Modifier le message
     .put(function(req, res) {
-
-        if(req.body.message == null){
-            res.status(400).json({ erreur: 'Le message doit être fourni dans le corps de la requête' });
-            return;
-        }
-
-        message = req.body.message;
+        message = res.body.message;
         res.json({message: 'Message modifié avec succès.'});
     });
 
