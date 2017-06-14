@@ -58,12 +58,26 @@ router.route('/etudiants')
         });
     });
 
-router.route('/message')
+router.route("/message")
 
-//obtenir mon message statique
+//obtenir le message
     .get(function(req, res) {
         res.json(message);
     });
+
+router.route("/message")
+//Modifier le message
+    .put(function(req, res) {
+
+        if(req.body.message == null){
+            res.status(400).json({ erreur: 'Le message doit être fourni dans le corps de la requête' });
+            return;
+        }
+
+        message = req.body.message;
+        res.json({message: 'Message modifié avec succès.'});
+    });
+
 
 router.route("/etudiants/:code")  //Prend le code permanent dans l'URL. Ex. /etudiant/BOIE10101010
     //Obtenir un seul étudiant
