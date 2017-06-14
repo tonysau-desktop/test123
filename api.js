@@ -62,10 +62,10 @@ router.route("/message")
 
 //Obtenir le message
     .get(function(req, res) {
-        res.json(message);
+        res.json(monmessage);
     });
 
-router.route("/message/messageModifie")
+router.route("/message")
 //Modifier le message
     .put(function(req, res) {
         monmessage = req.body.message;
