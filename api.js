@@ -6,10 +6,11 @@ var monmessage = "Voici un message pour Partie 2!";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 8080;
 
-
+var fonctions = require('./scripts/fonctions.js');
 
 // --------------------
 // ROUTES D'API
@@ -49,6 +50,11 @@ router.route("/message")
 
 //Enregistre les routes d'API pour qu'elles soient accessibles sur /api
 app.use('/api', router);
+
+// Page Angular de présentation des messages
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '/public', 'index.html'));
+});
 
 // Démarre le serveur
 app.listen(port);

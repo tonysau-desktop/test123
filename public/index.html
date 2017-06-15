@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html ng-app="messages">
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimisation pour affichage mobile -->
+
+        <title>Devoir sur les APIs REST - GTI525</title>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        
+        <style>
+            html                    { overflow-y:scroll;}
+            .message                { height: 2em; overflow: hidden; padding:5px 0 5px 0;}
+            .api-link               { text-decoration: none; cursor: default; }
+        </style>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <script src="core.js"></script>
+
+    </head>
+    <body ng-controller="mainController">
+        <div class="container">
+            <h1>Les messages des {{ etudiants.length }} étudiants de GTI525</h1>
+            <div id="etudiants-list" class="etudiants">
+                <!-- Pour chaque étudiant retourné par l'API -->
+                <div class="message" ng-repeat="etudiant in etudiants" >
+                    {{ etudiant.prenom }} {{ etudiant.nom }} : 
+                    <svg class="bravo" ng-show='etudiant.messageApi.length > 0' width="19" height="16" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <title>Message tiré de {{etudiant.hyperlien}}</title>
+                            <path stroke="#C48157"  d="m1.45961,6.08406l5.60891,0l1.7332,-5.32844l1.7332,5.32844l5.60891,0l-4.53769,3.29312l1.73329,5.32844l-4.5377,-3.29321l-4.5377,3.29321l1.73329,-5.32844l-4.5377,-3.29312z" fill="#FFFA8D"/>
+                        </g>
+                    </svg>
+                    {{ etudiant.message }}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
