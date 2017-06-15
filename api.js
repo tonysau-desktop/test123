@@ -9,7 +9,10 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
-
+// Route de test, sur /api
+router.get('/', function(req, res) {
+    res.json({ message: monmessage});
+});
 
 // --------------------
 // ROUTES D'API
