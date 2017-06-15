@@ -10,8 +10,6 @@ app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 8080;
 
-var fonctions = require('./scripts/fonctions.js');
-
 // --------------------
 // ROUTES D'API
 // --------------------
