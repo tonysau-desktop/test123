@@ -9,10 +9,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
-// Route de test, sur /api
-router.get('/', function(req, res) {
-    res.json({ message: monmessage});
-});
+
 
 // --------------------
 // ROUTES D'API
@@ -22,6 +19,11 @@ var router = express.Router();
 // Routeur qui reçoit tous les messages et les route à l'endroit approprié
 router.use(function(req, res, next) 
 {    next(); // Continue à la route
+});
+
+// Route de test, sur /api
+router.get('/', function(req, res) {
+    res.json({ message: monmessage});
 });
 
 // --------------------
