@@ -4,16 +4,10 @@ function mainController($scope, $http) {
     $scope.formData = {};
 
     var rafraichir = function() {
-    $http.get('/api/etudiants')
+    $http.get('/api/message')
         .success(function(data) {
-            
-            angular.forEach(data, function(etudiant){
-              if (etudiant.hyperlien.length != 0){
-                etudiant.messageApi = etudiant.hyperlien;
-              }
-            });
-
-            $scope.etudiants = data;
+			
+            $scope.message = data;
         })
         .error(function(data) {
             console.log('Error: ' + data);

@@ -23,20 +23,7 @@
     </head>
     <body ng-controller="mainController">
         <div class="container">
-            <h1>Les messages des {{ etudiants.length }} étudiants de GTI525</h1>
-            <div id="etudiants-list" class="etudiants">
-                <!-- Pour chaque étudiant retourné par l'API -->
-                <div class="message" ng-repeat="etudiant in etudiants" >
-                    {{ etudiant.prenom }} {{ etudiant.nom }} : 
-                    <svg class="bravo" ng-show='etudiant.messageApi.length > 0' width="19" height="16" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <title>Message tiré de {{etudiant.hyperlien}}</title>
-                            <path stroke="#C48157"  d="m1.45961,6.08406l5.60891,0l1.7332,-5.32844l1.7332,5.32844l5.60891,0l-4.53769,3.29312l1.73329,5.32844l-4.5377,-3.29321l-4.5377,3.29321l1.73329,-5.32844l-4.5377,-3.29312z" fill="#FFFA8D"/>
-                        </g>
-                    </svg>
-                    {{ etudiant.message }}
-                </div>
-            </div>
+            <h1>Mon message: {{ message }} </h1>            
         </div>
     </body>
 </html>
