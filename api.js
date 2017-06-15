@@ -20,11 +20,6 @@ router.use(function(req, res, next)
 {    next(); // Continue à la route
 });
 
-// Route de test, sur /api
-router.get('/', function(req, res) {
-    res.json({ message: monmessage});
-});
-
 // --------------------
 // ROUTES D'API
 // --------------------
